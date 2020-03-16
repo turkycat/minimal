@@ -7,9 +7,11 @@
 Minimal is a Jekyll theme for GitHub Pages.  
 **this version has been updated to drastically improve the alignment issues and will continue to be adapted to support sidebar changes.**
 
-You can [preview the theme to see what it looks like](http://turkycat.github.io/minimal).  
+#### [preview the modified theme to see what it looks like](http://turkycat.github.io/minimal).  
 
-[see what the original looked like](http://pages-themes.github.io/minimal).
+#### [see the original page that this theme was customized for: ](http://turkycat.github.io/tradingbot)
+
+#### original theme: [here](http://pages-themes.github.io/minimal).
 
 ## Usage UPDATED
 ### turkycat note: the github-pages version was severely lacking. take my advice and don't ignore this:

@@ -1,28 +1,44 @@
-# The Minimal theme
+# minimal
 
-[![Build Status](https://travis-ci.org/pages-themes/minimal.svg?branch=master)](https://travis-ci.org/pages-themes/minimal) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-minimal.svg)](https://badge.fury.io/rb/jekyll-theme-minimal)
+<!-- [![Build Status](https://travis-ci.org/pages-themes/minimal.svg?branch=master)](https://travis-ci.org/pages-themes/minimal) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-minimal.svg)](https://badge.fury.io/rb/jekyll-theme-minimal) -->
 
-*Minimal is a Jekyll theme for GitHub Pages. You can [preview the theme to see what it looks like](http://pages-themes.github.io/minimal), or even [use it today](#usage).*
+## turkycat changes
 
-![Thumbnail of minimal](thumbnail.png)
+Minimal is a Jekyll theme for GitHub Pages.  
+**this version has been updated to drastically improve the alignment issues and will continue to be adapted to support sidebar changes.**
 
-## Usage
+You can [preview the theme to see what it looks like](http://turkycat.github.io/minimal).  
+
+[see what the original looked like](http://pages-themes.github.io/minimal).
+
+## Usage UPDATED
+### turkycat note: the github-pages version was severely lacking. take my advice and don't ignore this:
 
 To use the Minimal theme:
 
 1. Add the following to your site's `_config.yml`:
 
-    ```yml
-    theme: jekyll-theme-minimal
-    ```
+```yml
+remote-theme: turkycat/minimal
+
+plugins:
+  - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-seo-tag
+  - jekyll-coffeescript
+```
 
 2. Optionally, if you'd like to preview your site on your computer, add the following to your site's `Gemfile`:
 
-    ```ruby
-    gem "github-pages", group: :jekyll_plugins
-    ```
+```ruby
+gem "github-pages", "~> 204", group: :jekyll_plugins
 
-
+group :jekyll_plugins do
+  gem "jekyll-feed", "~> 0.12"
+  gem "jekyll-include-cache", "~> 0.2.0"
+  gem 'jekyll-seo-tag', '~> 2.0'
+end
+```
 
 ## Customizing
 
@@ -41,6 +57,30 @@ Additionally, you may choose to set the following optional variables:
 logo: [Location of the logo]
 show_downloads: ["true" or "false" to indicate whether to provide a download URL]
 google_analytics: [Your Google Analytics tracking ID]
+```
+
+## turkycat's tips and tricks:
+
+### relative vs base url  
+
+github pages is extremely frustrating. when you're setting up your project, you will likely serve from project root. github will serve from `/<projectname>`, meaning all your links and images will break when you push.
+
+to resolve this, first verify your `baseurl` is set to empty string in `_config.yml`.
+
+```yml
+baseurl: ""
+```
+
+when providing links (scripts, styles, pages/posts, or images use Liquid piping to `relative_url`.
+
+```liquid
+{{ page.url | relative_url }}
+```
+
+if you need to add to the end of a root variable, use the `append:` command like this:
+
+```liquid
+{{ site.image-root | append: '/subdirectory/of/organized/images' | relative_url }}
 ```
 
 ### Stylesheet
@@ -82,7 +122,7 @@ Interested in contributing to Minimal? We'd love your help. Minimal is an open s
 
 If you'd like to preview the theme locally (for example, in the process of proposing a change):
 
-1. Clone down the theme's repository (`git clone https://github.com/pages-themes/minimal`)
+1. Clone down the theme's repository (`git clone https://turkycat/pages-themes/minimal`)
 2. `cd` into the theme's directory
 3. Run `script/bootstrap` to install the necessary dependencies
 4. Run `bundle exec jekyll serve` to start the preview server
